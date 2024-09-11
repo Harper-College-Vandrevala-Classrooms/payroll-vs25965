@@ -15,7 +15,7 @@ public class Report {
     System.out.println("\r\n\tSocSec: $ " + String.format("%.2f", _socialtax));
 
     double  _federaltax = calobject.federaltax(tgross);
-    System.out.println("\tFedTax: $ " + String.format("%.2f", _federaltax));
+    System.out.println("\tFedTax: $ " + String.format("%.2f",_federaltax));
 
     double  _statetax = calobject.statetax(tgross);
     System.out.println("\tStTax:  $ " + String.format("%.2f", _statetax));

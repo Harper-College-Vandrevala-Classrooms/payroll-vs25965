@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.csc.TestBCalculator" tests="9" skipped="0" failures="0" errors="0" timestamp="2024-09-11T17:56:50" hostname="EL_TOTE1" time="0.034">
+  <properties/>
+  <testcase name="grosstestforzerohours()" classname="com.csc.TestBCalculator" time="0.02"/>
+  <testcase name="federaltaxtestforfortyhours()" classname="com.csc.TestBCalculator" time="0.001"/>
+  <testcase name="grosstestforsixtyhours()" classname="com.csc.TestBCalculator" time="0.001"/>
+  <testcase name="federaltaxtestforsixtyhours()" classname="com.csc.TestBCalculator" time="0.0"/>
+  <testcase name="insurancetestfewdepents()" classname="com.csc.TestBCalculator" time="0.001"/>
+  <testcase name="socialsectestforfortyhours()" classname="com.csc.TestBCalculator" time="0.001"/>
+  <testcase name="statetaxtestforfortyhours()" classname="com.csc.TestBCalculator" time="0.001"/>
+  <testcase name="insurancetestmoredepents()" classname="com.csc.TestBCalculator" time="0.002"/>
+  <testcase name="grosstestforfortyhours()" classname="com.csc.TestBCalculator" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
