@@ -3,12 +3,13 @@ package com.csc;
 public class Report {
 
     BCalculator calobject = new BCalculator();
-    public void checks (double hoursworked, int dependents)
+    public void checks (float hoursworked, int dependents, float payrate, double _lifeIns)
     {   
         System.out.println("\r\nPayroll Stub:"); 
-        System.out.println("\r\n\tWorked hours: " + hoursworked + " hrs.\r\n\tRate:         16.78$/hr");
-        System.out.println("\tDependents:   " + dependents);
-        double tgross = calobject.Gross(hoursworked);
+        System.out.print("\r\n\tWorked hours: " + String.format("%.2f",hoursworked) + " hrs");
+        System.out.print("\r\n\tRate:  " + String.format("%.2f",payrate) + " $/hr");
+        System.out.println("\r\n\tDependents:  " + dependents);
+        double tgross = calobject.Gross(hoursworked,payrate);
         System.out.println("\r\n\tGross:    $" + String.format("%.2f",tgross));
         
     double  _socialtax = calobject.socialsec(tgross);
@@ -20,21 +21,50 @@ public class Report {
     double  _statetax = calobject.statetax(tgross);
     System.out.println("\tStTax:  $ " + String.format("%.2f", _statetax));
 
-    double  _Localuniontax = calobject.Localtax();
-    System.out.println("\tUnion:  $ " + String.format("%.2f",_Localuniontax));
-
-    double  _insurance = calobject.insurance(dependents);
-    System.out.println("\tIns:    $ " + String.format("%.2f",_insurance));
-    
-    double  _netpay = calobject.NetPay(tgross);
-    System.out.println("\r\n\r\n\tNet:    $ " + String.format("%.2f", _netpay));
-
-    System.out.println("\r\nThank you for using the Payroll Program!\r\n");
-
+    double _lifeins = calobject.lifeIns(_lifeIns);
+    if (_lifeins == 0)
+    {
+      System.out.println("\tLifeIns:  $ " + String.format("%.2f",_lifeins));
     }
+    if (_lifeins == 5)
+    {
+      System.out.println("\tLifeIns:  $ " + String.format("%.2f",_lifeins));
+    }
+    if (_lifeins == 10)
+    {
+      System.out.println("\tLifeIns:  $ " + String.format("%.2f",_lifeins));
+    }
+    else if (_lifeins == 15)
+    {
+      System.out.println("\tLifeIns:  $ " + String.format("%.2f",_lifeins));
+    }
+
+    double  _Localuniontax = calobject.Localtax();
+    double  _insurance = calobject.insurance(dependents); 
+    double[]  _netpay = calobject.NetPay(tgross);
     
-    
-    
+    if (_netpay[1] == 1)
+    { 
+    System.out.println("\tUnion:  $ " + String.format("%.2f",_Localuniontax));
+    System.out.println("\tIns:    $ " + String.format("%.2f",_insurance));
+    System.out.println("\r\n\r\n\tNet:    $ " + String.format("%.2f", _netpay[0]));
+    System.out.println("\r\nThank you for using the Payroll Program!\r\n");
+    }
+    else if (_netpay[1] == 2)
+    {
+        System.out.println("\tUnion:  $ " + String.format("%.2f",_Localuniontax));
+        System.out.println("\r\n\tNet:    $ " + String.format("%.2f", _netpay[0]));
+        System.out.println("\r\nThe employee still owes:");
+        System.out.println("\tIns:    $ " + String.format("%.2f",_insurance));
+    }
+    else if (_netpay[1] == 3)
+    {
+        System.out.println("\r\n\tNet:    $ " + String.format("%.2f", _netpay[0]));
+        System.out.println("\r\nThe employee still owes:");
+        System.out.println("\tUnion:  $ " + String.format("%.2f",_Localuniontax));
+        System.out.println("\tIns:    $ " + String.format("%.2f",_insurance));
+    }
+    }
 }
 
  
